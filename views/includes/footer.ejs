@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="footer-col-2">
-                <img src="images/cakelogo.png" alt="cake-logo">
+                <img src="/images/cakelogo.png" alt="cake-logo">
                 <p>Our purpose is to make the best cake aroung the Nepal. <br>
                  and serve it to the customer with an honor.
                 </p>
@@ -39,6 +39,11 @@
     </div>
 </div>
 <script src="/javascripts/menu.js"></script>
+<% if ( title == 'Cake Details' ) { %>
 <script src="/javascripts/cakes.js"></script>
+<% } %>
+<% if ( title == 'Account' ) { %>
+<script src="/javascripts/account.js"></script>
+<% } %>
 </body>
 </html>

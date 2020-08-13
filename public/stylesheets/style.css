@@ -57,6 +57,11 @@ nav ul li {
   padding: 20px;
 }
 
+.cart-icon {
+  display: block;
+  width: 28px;
+}
+
 .row {
   display: flex;
   align-items: center;
@@ -293,6 +298,10 @@ nav ul li {
   margin: 20px auto;
 }
 
+.footer-col-1 p {
+  padding-left: 0;
+}
+
 .footer-col-2 {
   flex: 1;
   text-align: center;
@@ -405,5 +414,9 @@ ul {
 
   .row-2 h2 {
     font-size: 16px;
+  }
+
+  .cart-page p {
+    display: none;
   }
 }

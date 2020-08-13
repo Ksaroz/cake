@@ -9,7 +9,12 @@ router.get('/', function(req, res, next) {
 /* GET cake-details page */
 router.get('/details', function(req, res, next) {
   res.render('cakes/detail', { title: 'Cake Details'});
-})
+});
+
+/* GET Cart page */
+router.get('/cart', function(req, res, next) {
+  res.render('cakes/cart', { title: 'Cake Cart' });
+});
 
 
 module.exports = router;
