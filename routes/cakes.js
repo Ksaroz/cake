@@ -1,20 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
+const cakesController = require('../controllers/cake');
+
+/* GET home page. */
+router.get('/', cakesController.getCakeIndex );
+
 /* GET allCakes page. */
-router.get('/', function(req, res, next) {
-  res.render('cakes/allcakes', { title: 'All Cakes' });
-});
+router.get('/cakes', cakesController.getAllCakes);
+
+/* GET addCakes page */
+router.get('/add', cakesController.getAddCake);
 
 /* GET cake-details page */
-router.get('/details', function(req, res, next) {
-  res.render('cakes/detail', { title: 'Cake Details'});
-});
+router.get('/details', cakesController.getCakeDetails);
 
 /* GET Cart page */
-router.get('/cart', function(req, res, next) {
-  res.render('cakes/cart', { title: 'Cake Cart' });
-});
+router.get('/cart', cakesController.getCakeCart);
 
 
 module.exports = router;

@@ -258,3 +258,14 @@ form a {
     transform: translateX(100px);
     transition: transform 1s;
 }
+
+/********** Adding New Cake Form**********/
+
+.form-control {
+    margin: auto 300px;
+    padding: 5px;
+}
+
+#cakeDescription {
+    width: 100%;
+}
