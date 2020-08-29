@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
+const adminRouter = require('./routes/admin');
 var cakesRouter = require('./routes/cakes');
 var accountRouter = require('./routes/account');
 
@@ -19,8 +20,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 
 app.use('/', cakesRouter);
+app.use('/admin', adminRouter);
 app.use('/account', accountRouter);
 
 // catch 404 and forward to error handler

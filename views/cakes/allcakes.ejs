@@ -1,8 +1,8 @@
 <%- include('../includes/header.ejs') %>
-<!-- <link rel="stylesheet" href="/stylesheets/cakes.css"> -->
 <%- include('../includes/navigation.ejs') %>
 
-<div class="small-container">
+
+<div class="container">
         <div class="row row-2">
             <h2>All Cakes</h2>
             <select>
@@ -13,163 +13,38 @@
                 <option value="#">Sort by sale</option>
             </select>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <img src="/images/cake1.png">
-                <h4>Chocolate with rainbow toppings</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs600.00</p>
+        <% if ( prods.length > 0 ) { %>
+        <div class="row allCakes">                
+                    <div class="col">
+                        <% for ( let cake of prods) { %>
+                        <img src="<%= cake.imageUrl %>" alt="<%= cake.title %>">
+                        <h4><%= cake.title %></h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs<%= cake.price %></p>
+                        <% } %>
+                    </div>
+                    <% } else { %>
+                        <div class="alert alert-danger" role="alert">
+                            <h4>No Product Found</h4>
+                          </div>                        
+                    <% } %>
+                    <div class="pagination">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>&#8594;</span>
+                    </div> 
             </div>
-            <div class="col-4">
-                 <img src="/images/cake2.jpg">
-                 <h4>Chocolate with strawberry toppings</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs400.00</p>
-            </div>
-            <div class="col-4">
-                <img src="/images/cake3.png">
-                <h4>Chocolate with cherry & cream </h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs200.00</p>
-            </div>
-            <div class="col-4">
-                <img src="/images/cake1.png">
-                <h4>Chocolate with rainbow toppings</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs600.00</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <img src="/images/cake1.png">
-                <h4>Chocolate with rainbow toppings</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs600.00</p>
-            </div>
-            <div class="col-4">
-                 <img src="/images/cake2.jpg">
-                 <h4>Chocolate with strawberry toppings</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs400.00</p>
-            </div>
-            <div class="col-4">
-                <img src="/images/cake3.png">
-                <h4>Chocolate with cherry & cream </h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs200.00</p>
-            </div>
-            <div class="col-4">
-                <img src="/images/cake1.png">
-                <h4>Chocolate with rainbow toppings</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs600.00</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <img src="/images/cake1.png">
-                <h4>Chocolate with rainbow toppings</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs600.00</p>
-            </div>
-            <div class="col-4">
-                 <img src="/images/cake2.jpg">
-                 <h4>Chocolate with strawberry toppings</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs400.00</p>
-            </div>
-            <div class="col-4">
-                <img src="/images/cake3.png">
-                <h4>Chocolate with cherry & cream </h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs200.00</p>
-            </div>
-            <div class="col-4">
-                <img src="/images/cake1.png">
-                <h4>Chocolate with rainbow toppings</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Rs600.00</p>
-            </div>
-        </div>
-        <div class="pagination">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>&#8594;</span>
-        </div>
-    </div>
+            
+
+</div>      <!-- Header End -->
+    
 
 <%- include('../includes/footer.ejs') %>

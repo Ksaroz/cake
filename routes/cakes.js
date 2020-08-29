@@ -9,14 +9,14 @@ router.get('/', cakesController.getCakeIndex );
 /* GET allCakes page. */
 router.get('/cakes', cakesController.getAllCakes);
 
-/* GET addCakes page */
-router.get('/add', cakesController.getAddCake);
-
 /* GET cake-details page */
 router.get('/details', cakesController.getCakeDetails);
 
 /* GET Cart page */
 router.get('/cart', cakesController.getCakeCart);
+
+/* GET About page */
+router.get('/about', cakesController.getAboutPage);
 
 
 module.exports = router;
