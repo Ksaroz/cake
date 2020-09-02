@@ -5,8 +5,8 @@
 <div class="container single-cake">
     <div class="row">
         <div class="col-2">
-            <img src="/images/cake1.png" width="100%" id="cakeImg">
-            <div class="small-img-row">
+            <img src="<%= cake.imageUrl %>" width="100%" id="cakeImg" alt="<%= cake.title %>">
+            <!-- <div class="small-img-row">
                 <div class="small-img-col">
                     <img src="/images/cake1.png" width="100%" class="small-img">
                 </div>
@@ -19,12 +19,12 @@
                 <div class="small-img-col">
                     <img src="/images/cake3.png" width="100%" class="small-img">
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="col-2">
             <p>Cakes/Chocolate</p>
-            <h1>Chocolate cake with rainbow toppings</h1>
-            <h4>Rs600.00</h4>
+            <h1><%= cake.title %></h1>
+            <h4>Rs.<%= cake.price %></h4>
             <select>
                 <option>Select Pound</option>
                 <option>1 Pound</option>
@@ -36,7 +36,7 @@
             <a href="" class="btn">Add To Cart</a>
             <h3>Cake Details <i class="fa fa-indent"></i></h3>
             <br>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            <p><%= cake.description %></p>
         </div>
     </div>
 </div>

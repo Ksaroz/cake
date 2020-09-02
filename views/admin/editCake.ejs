@@ -1,0 +1,23 @@
+<%- include('../includes/header.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+
+    <div class="row">
+        <div class="col">
+            <div class="add-cake">
+            <form action="/admin/edit" method="POST" class="form-group">
+                <label for="cakeTitle">Cake Title</label>
+                <input type="text" name="title" id="cakeTitle" value="<%= cake.title %>">
+                <label for="cakeImage">Cake Image</label>
+                <input type="text" name="imageUrl" id="cakeImage" value="<%= cake.imageUrl %>">
+                <label for="cakePrice">Cake Price</label>
+                <input type="number" name="price" id="cakePrice" value="<%= cake.price %>">
+                <textarea name="description" id="cakeDescription" cols="10" rows="5" placeholder="Write something on cake"><%= cake.description %></textarea>
+                <button type="submit" class="btn" name="submit">Update</button>
+                <input type="hidden" name="cakeId" value="<%= cake._id %>">
+            </form>
+        </div>
+        </div>
+    </div>    
+</div>   <!-- Header End -->
+
+<%- include('../includes/footer.ejs') %>

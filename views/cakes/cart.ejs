@@ -2,75 +2,38 @@
 <%- include('../includes/navigation.ejs') %>
 
     <!-- Cart Items Details -->
-
+    <% if (cakes.length > 0) { %>
     <div class="container cart-page">
+        
         <table>
             <tr>
                 <th>Cake Name</th>
                 <th>Quantity</th>
-                <th>Subtotal</th>
+                <th>Total</th>
             </tr>
-            <tr>  <!-- duplicate for more data -->
+            <% cakes.forEach(cake => { %>
+            <tr>
                 <td>
                     <div class="cart-info">
-                        <img src="/images/cake1.png">
+                        <img src="<%= cake.cakeId.imageUrl %>">
                         <div>
-                            <p>Chocolate Celebration</p>
-                            <small>Price: Rs.600.00</small>
+                            <p><%= cake.cakeId.title %></p>
+                            <small>Price: Rs.<%= cake.cakeId.price %></small>
                             <br>
-                            <a href="#">Remove</a>
+                            <form action="/cart/delete" method="POST">
+                                <input type="hidden" name="cakeId" value="<%= cake.cakeId._id %>">
+                                <button class="badge badge-danger" type="submit">Remove</button>
+                            </form>
+                            <!-- <a href="#">Remove</a> -->
                         </div>
                     </div>
                 </td>
-                <td><input type="number" value="1"></td>
-                <td>Rs.600.00</td>
+                <td><input type="number" value="<%= cake.quantity %>"></td>
+                <td>Rs.<%= (cake.cakeId.price * cake.quantity).toFixed(2) %></td>
             </tr>
-            <tr>  <!-- duplicate for more data -->
-                <td>
-                    <div class="cart-info">
-                        <img src="/images/cake2.jpg">
-                        <div>
-                            <p>Chocolate Celebration</p>
-                            <small>Price: Rs.300.00</small>
-                            <br>
-                            <a href="#">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>Rs.600.00</td>
-            </tr>
-            <tr>  <!-- duplicate for more data -->
-                <td>
-                    <div class="cart-info">
-                        <img src="/images/cake3.png">
-                        <div>
-                            <p>Chocolate Celebration</p>
-                            <small>Price: Rs.500.00</small>
-                            <br>
-                            <a href="#">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>Rs.600.00</td>
-            </tr>
-            <tr>  <!-- duplicate for more data -->
-                <td>
-                    <div class="cart-info">
-                        <img src="/images/cake1.png">
-                        <div>
-                            <p>Chocolate Celebration</p>
-                            <small>Price: Rs.600.00</small>
-                            <br>
-                            <a href="#">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>Rs.600.00</td>
-            </tr>
+            <% }) %>
         </table>
+        
         <div class="total-price">
             <table>
                 <tr>
@@ -87,7 +50,19 @@
                 </tr>
             </table>
         </div>
+        <hr>
+        <form action="/orders" method="POST">
+            <button class="btn" type="submit">Order Now</button>
+        </form>
     </div>
+    
+    <% } else { %>
+        <div class="container">
+            <div class="alert alert-danger my-5" role="alert">
+            <h4 class="text-center">******You Do Not Have Items In Your Cart******</h4>
+            </div> 
+        </div>                       
+    <% } %>
 
 <%- include('../includes/service.ejs') %>
 

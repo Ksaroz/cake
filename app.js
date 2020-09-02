@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var User =  require('./models/user');
 
 const adminRouter = require('./routes/admin');
 var cakesRouter = require('./routes/cakes');
@@ -24,6 +25,15 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); /
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 
+app.use((req, res, next) => {
+  User.findById('5f4c77223407eb0a306b01f2')
+  .then(user => {
+    req.user = user;
+    next();
+  })
+  .catch(err => console.log(err));
+});
+
 app.use('/', cakesRouter);
 app.use('/admin', adminRouter);
 app.use('/account', accountRouter);
@@ -36,18 +46,18 @@ app.use(function(req, res, next) {
 mongoose.connect('mongodb+srv://ksaroz1992:mongodb7029@cluster0-13s3r.mongodb.net/cake?retryWrites=true&w=majority',
 { useUnifiedTopology: true, useNewUrlParser: true })
   .then(result => {
-    // User.findOne().then(user => {
-    //   if (!user) {
-    //     const user = new User({
-    //       name: 'Saroz',
-    //       email: 'saroz@test.com',
-    //       cart: {
-    //         items: []
-    //       }
-    //     });
-    //     user.save();
-    //   }
-    // });
+    User.findOne().then(user => {
+      if (!user) {
+        const user = new User({
+          name: 'Saroz',
+          email: 'saroz@test.com',
+          cart: {
+            items: []
+          }
+        });
+        user.save();
+      }
+    });
      console.log('connected');
   })
   .catch(err => {

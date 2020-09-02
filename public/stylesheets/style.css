@@ -55,11 +55,25 @@ h4 {
 }
 
 .btn {
-  display: inline-block;
-  background: #ff523b;
-  color: #fff;
+  width: 160px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: whitesmoke;
+  color: #ff523b;
   padding: 8px 30px;
-  margin: 30px 0;
+  margin: 3px 0;
   margin-left: 0px;
   border-radius: 30px;
   -webkit-transition: background 0.5s;
@@ -67,8 +81,8 @@ h4 {
 }
 
 .btn:hover {
-  background: #fcfbfb;
-  color: #ff523b;
+  background: #ff523b;
+  color: #fcfbfb;
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
@@ -352,6 +366,10 @@ nav ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .buy {
@@ -1080,5 +1098,9 @@ form a {
 
 .add-cake textarea {
   width: 100%;
+}
+
+form .btn {
+  width: 160px;
 }
 /*# sourceMappingURL=style.css.map */

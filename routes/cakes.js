@@ -10,10 +10,19 @@ router.get('/', cakesController.getCakeIndex );
 router.get('/cakes', cakesController.getAllCakes);
 
 /* GET cake-details page */
-router.get('/details', cakesController.getCakeDetails);
+router.get('/details/:cakeId', cakesController.getCakeDetails);
 
 /* GET Cart page */
 router.get('/cart', cakesController.getCakeCart);
+
+/* POST add to Cart */
+router.post('/cart', cakesController.postCakeCart);
+
+/* POST Delete Cart Items */
+router.post('/cart/delete', cakesController.postCartDeleteCake);
+
+/* POST Place Orders */
+router.post('/orders', cakesController.postOrder);
 
 /* GET About page */
 router.get('/about', cakesController.getAboutPage);
