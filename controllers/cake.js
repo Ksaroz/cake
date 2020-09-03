@@ -2,7 +2,7 @@ const Cake = require('../models/cake');
 const Order = require('../models/order');
 
 exports.getCakeIndex = (req, res, next) => {
-    res.render('index', { title: 'Cake' });
+    res.render('index', { title: 'Shop' });
 }
 
 exports.getAllCakes = (req, res, next) => {
@@ -22,7 +22,7 @@ exports.getCakeDetails = (req, res, next) => {
     Cake.findById(cakeId)
     .then(cake => {
         res.render('cakes/detail', { 
-            title: 'Cake Details',
+            title: 'cake Details',
             cake: cake,
             path: '/details'
         });
