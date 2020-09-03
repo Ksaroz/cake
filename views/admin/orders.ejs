@@ -5,7 +5,7 @@
     <% if (orders.length <= 0) { %>
         <div class="container">
             <div class="alert alert-danger my-5" role="alert">
-            <h4 class="text-center">******You Do Not Have Items In Your Cart******</h4>
+            <h4 class="text-center">******You Do Not Have any order ******</h4>
             </div> 
         </div>  
     <% } else { %>   
@@ -15,7 +15,7 @@
         <table>
             <tr>
                 <th>Order</th>
-                <th>Products</th>
+                <th>cakes</th>
             </tr>
             <% orders.forEach(order => { %>
             <tr>
@@ -23,9 +23,9 @@
                     <h1><%= order._id %></h1>
                 </td>
                 <td>
-                    <ul class="order__product">
+                    <ul class="order__cake">
                         <% order.cakes.forEach(c => { %>
-                        <li class="order__products-items">
+                        <li class="order__cakes-items">
                             <%= c.cake.title %> (<%= c.quantity %>)
                         </li>
                         <% }) %>

@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-mongoose.connect(process.env.MONGO_URL || 'mongodb+srv://ksaroz1992:mongodb7029@cluster0-13s3r.mongodb.net/sajha?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGO_URL || 'mongodb+srv://ksaroz1992:mongodb7029@cluster0-13s3r.mongodb.net/cake?retryWrites=true&w=majority',
 { useUnifiedTopology: true, useNewUrlParser: true })
   .then(result => {
     User.findOne().then(user => {

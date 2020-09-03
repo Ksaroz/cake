@@ -2,7 +2,7 @@
 <%- include('../includes/navigation.ejs') %>
 
     <!-- Cart Items Details -->
-    <% if (cake.length > 0) { %>
+    <% if (cakes.length > 0) { %>
     <div class="container cart-page">
         
         <table>
@@ -11,7 +11,7 @@
                 <th>Quantity</th>
                 <th>Total</th>
             </tr>
-            <% cake.forEach(cake => { %>
+            <% cakes.forEach(cake => { %>
             <tr>
                 <td>
                     <div class="cart-info">
